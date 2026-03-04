@@ -16,9 +16,7 @@
 #include "clock_config.h"
 #include "fsl_debug_console.h"
 /* TODO: insert other include files here. */
-
-#include <task.h>
-
+#include "fsl_port.h"
 /* TODO: insert other definitions and declarations here. */
 
 /*
@@ -30,12 +28,23 @@ int main(void) {
     BOARD_InitBootPins();
     BOARD_InitBootClocks();
     BOARD_InitBootPeripherals();
-#ifndef BOARD_INIT_DEBUG_CONSOLE_PERIPHERAL
-    /* Init FSL debug console. */
     BOARD_InitDebugConsole();
-#endif
 
+    CLOCK_EnableClock(kCLOCK_PortB);
+    CLOCK_EnableClock(kCLOCK_PortD);
 
+    PORT_SetPinMux(PORTB, 19U, kPORT_MuxAsGpio); /* Green LED */
+    PORT_SetPinMux(PORTB, 18U, kPORT_MuxAsGpio); /* Red LED */
+    PORT_SetPinMux(PORTD, 1U, kPORT_MuxAsGpio); /* Blue LED */
+
+    gpio_pin_config_t outConfig = {
+		.pinDirection = kGPIO_DigitalOutput,
+		.outputLogic = 0U
+    };
+
+    GPIO_PinInit(GPIOD, 1U, &outConfig); /* Blue LED */
+    GPIO_PinInit(GPIOB, 19U, &outConfig); /* Green LED */
+    GPIO_PinInit(GPIOB, 18U, &outConfig); /* Red LED */
 
     return 0 ;
 }

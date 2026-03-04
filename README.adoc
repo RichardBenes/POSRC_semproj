@@ -15,12 +15,14 @@ At this time, I'll just go with the as-quick-as-possible approach, so I won't go
 
 == TODO
 
-* Add board's schematic diagram
-* List MCU's params
+* Add board's schematic diagram ✅
+* Run some UART print
+* List MCU's params in this file
 * Depict the project's structure (tasks, queues, ...) using PlantUML
 * Find out how to use FreeRTOS-aware debugging here in Eclipse
 * Will links to source files work here, in text and in PlantUML diagrams like in IntelliJ?
 * What are the ConfigTools in MCUXpresso?
+* Some Git GUI for MCUXpresso? And GitLab GUI?
 
 .PlantUML works here in Eclipse too!
 [plantuml, align=center]
