@@ -17,7 +17,14 @@
 #include "fsl_debug_console.h"
 /* TODO: insert other include files here. */
 #include "fsl_port.h"
+
+#include "FreeRTOS.h"
+#include "task.h"
+
 /* TODO: insert other definitions and declarations here. */
+
+void vGreenTask(void* params);
+void vBlueTask(void* params);
 
 /*
  * @brief   Application entry point.
@@ -46,5 +53,24 @@ int main(void) {
     GPIO_PinInit(GPIOB, 19U, &outConfig); /* Green LED */
     GPIO_PinInit(GPIOB, 18U, &outConfig); /* Red LED */
 
+    TaskHandle_t greenTask1;
+    TaskHandle_t blueTask1;
+
+    xTaskCreate(vGreenTask, "green-task-1", 32U, NULL, 0, &greenTask1);
+    xTaskCreate(vBlueTask, "blue-task-1", 32U, NULL, 0, &blueTask1);
+
+    vTaskStartScheduler();
+
     return 0 ;
+}
+
+/* TODO: pass the LED color as an argument */
+void vGreenTask(void* param) {
+
+	for (;;) {}
+}
+
+void vBlueTask(void* param) {
+
+	for (;;) {}
 }

@@ -15,6 +15,7 @@ At this time, I'll just go with the as-quick-as-possible approach, so I won't go
 
 == TODO
 
+* What are the naming conventions in FreeRTOS? Like `x`, `prv`, `v`...
 * Add board's schematic diagram ✅
 * Run some UART print
 * List MCU's params in this file
@@ -23,6 +24,9 @@ At this time, I'll just go with the as-quick-as-possible approach, so I won't go
 * Will links to source files work here, in text and in PlantUML diagrams like in IntelliJ?
 * What are the ConfigTools in MCUXpresso?
 * Some Git GUI for MCUXpresso? And GitLab GUI?
+* Fix the annoying warning about C++ 17 and `register`
+* Upgrade to FreeRTOS 10 (when FreeRTOS runs _at all_...)
+* Try Doxygen
 
 .PlantUML works here in Eclipse too!
 [plantuml, align=center]
